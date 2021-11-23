@@ -11,6 +11,8 @@ djangorestframework = "*"
 django-cors-headers = "*"
 djangorestframework-camel-case = "*"
 django-heroku = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 
