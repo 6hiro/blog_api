@@ -14,6 +14,7 @@ from pathlib import Path
 import environ
 import os
 from datetime import timedelta
+import django_heroku
 
 # Custom User('appname.modelname')
 AUTH_USER_MODEL = 'account.User'
@@ -201,6 +202,4 @@ FRONTEND_URL = env('CORS_ORIGIN_WHITELIST')
 CORS_ORIGIN_WHITELIST = [env('CORS_ORIGIN_WHITELIST')]
 
 
-if DEBUG == False:
-    import django_heroku
-    django_heroku.settings(locals())
+django_heroku.settings(locals())
