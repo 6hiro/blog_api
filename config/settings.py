@@ -31,7 +31,7 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 if DEBUG == True:
     ALLOWED_HOSTS = []
@@ -196,10 +196,10 @@ REST_FRAMEWORK = {
 # }
 
 # CORS
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
 # CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
 # FRONTEND_URL = env('CORS_ORIGIN_WHITELIST')
-# CORS_ORIGIN_WHITELIST = [env('CORS_ORIGIN_WHITELIST')]
+CORS_ORIGIN_WHITELIST = [env('CORS_ORIGIN_WHITELIST')]
 
 if DEBUG == False:
     django_heroku.settings(locals())
