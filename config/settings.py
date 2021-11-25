@@ -31,7 +31,7 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 if DEBUG == True:
     ALLOWED_HOSTS = []
@@ -170,7 +170,7 @@ REST_FRAMEWORK = {
     # snakecaseをcamelcaseに
     'DEFAULT_RENDERER_CLASSES': (
         'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
-        'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
+        # 'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
         # Any other renders
     ),
     'DEFAULT_PARSER_CLASSES': (
@@ -201,5 +201,5 @@ CORS_ALLOW_ALL_ORIGINS = True
 # FRONTEND_URL = env('CORS_ORIGIN_WHITELIST')
 # CORS_ORIGIN_WHITELIST = [env('CORS_ORIGIN_WHITELIST')]
 
-
-django_heroku.settings(locals())
+if DEBUG == False:
+    django_heroku.settings(locals())
